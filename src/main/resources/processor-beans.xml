@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="pfaTokenSplitter" class="org.diekema.camelpoc.processors.impl.XmlSplitterProcessorImpl">
+        <property name="entityTokens">
+            <list>
+                <value>Person</value>
+                <value>Entity</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="sha256HashProcessor" class="org.diekema.camelpoc.processors.impl.HashProcessorImpl">
+        <property name="hashAlgorithm" value="SHA-256"/>
+    </bean>
+
+    <bean id="entityLoaderProcessor" class="org.diekema.camelpoc.processors.impl.EntityLoaderProcessorImpl"/>
+
+    <bean id="xmlReferenceProcessor" class="org.diekema.camelpoc.processors.impl.XmlReferenceProcessorImpl">
+        <property name="entityTokens">
+            <list>
+                <value>CountryName</value>
+            </list>
+        </property>
+    </bean>
+</beans>
